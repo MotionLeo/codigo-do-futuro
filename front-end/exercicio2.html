@@ -1,0 +1,21 @@
+João Roberto é dono de um armazém que vende produtos de limpeza
+ele precisa de um programa que solicite os valores do alvejante, sabão em pó, sabonete.
+<br><br>
+Faça um programa que solicite também o nome do cliente
+e no final do programa mostre o valor 
+total da compra (soma dos valores dos produtos alvejante, sabão em pó, sabonete)
+feita por este cliente <br>
+o valor total é a soma das variáveis listadas acima.
+<br><br>
+Exemplo: Olá Fulano <br>
+o valor de sua compra é de: x
+
+<script>
+    let nome = prompt('Digite seu nome: ')
+
+    let alvejante = parseFloat(prompt('Digite o preço do alvejante: '));
+    let sabaoEmPo = parseFloat(prompt('Digite o preço do sabão em pó: '));
+    let sabonete = parseFloat(prompt('Digite o preço do sabonete: '));
+
+    alert(`Olá ${nome} \nO total da soma dos seus produtos é ${alvejante + sabaoEmPo + sabonete}`);
+</script>
