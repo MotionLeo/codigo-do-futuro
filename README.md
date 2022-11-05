@@ -1,2 +1,2 @@
 # codigo-do-futuro
-Códigos realizados durante o treinamento Código do Futuro
+Repositório para guardar códigos, desafios, anotações e exercícios realizados durante o treinamento Código do Futuro
