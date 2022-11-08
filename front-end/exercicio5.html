@@ -1,0 +1,36 @@
+<script>
+    let nome, valorDisponivel, valorRestante, opc;
+
+    nome = prompt("Caro viajante\nDigite o seu nome: ");
+    valorDisponivel = parseFloat(prompt("Agora digite o valor, por favor: "));
+    opc = parseInt(prompt("Escolha sua opção de viagem\n1 - Disney: R$ 15.000,00\n2 - Madrid: R$ 12.000,00\n3 - Maceió: R$ 8.000,00\n4 - Ribeirão Preto: R$ 5.000,00"));
+
+    switch(opc){
+        case 1:
+            alert("Viagem escolhida Disney!");
+            valorDisponivel <= 15000 ? alert(`Infelizmente você não possui valor suficiente para essa viagem :(
+            Seu valor disponível é ${valorDisponivel} reais\nFicou faltando ${15000 - valorDisponivel} reais para você conseguir comprar essa viagem`)
+            : alert(`Parabéns ${nome}, sua viagem está reservada!`);
+        break;
+        case 2:
+            alert("Viagem escolhida Madrid!");
+            valorDisponivel <= 12000 ? alert(`Infelizmente você não possui valor suficiente para essa viagem :(
+            Seu valor disponível é ${valorDisponivel} reais\nFicou faltando ${12000 - valorDisponivel} reais para você conseguir comprar essa viagem`)
+            : alert(`Parabéns ${nome}, sua viagem está reservada!`);
+        break;
+        case 3:
+            alert("Viagem escolhida Maceió!");
+            valorDisponivel <= 8000 ? alert(`Infelizmente você não possui valor suficiente para essa viagem :(
+            Seu valor disponível é ${valorDisponivel} reais\nFicou faltando ${8000 - valorDisponivel} reais para você conseguir comprar essa viagem`)
+            : alert(`Parabéns ${nome}, sua viagem está reservada!`);
+        break;
+        case 4:
+            alert("Viagem escolhida Ribeirão Preto!");
+            valorDisponivel <= 5000 ? alert(`Infelizmente você não possui valor suficiente para essa viagem :(
+            Seu valor disponível é ${valorDisponivel} reais\nFicou faltando ${5000 - valorDisponivel} reais para você conseguir comprar essa viagem`)
+            : alert(`Parabéns ${nome}, sua viagem está reservada!`);
+        break;
+        default:
+            alert("Opção inválida!");
+    }
+</script>
