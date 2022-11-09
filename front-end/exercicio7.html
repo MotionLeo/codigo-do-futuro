@@ -1,0 +1,33 @@
+<script>
+    let alunos = [
+        {
+            nome: "Leonardo",
+            matricula: 01,
+            notas: [8, 9, 4]
+        },
+    ];
+
+    let nomeAluno = prompt("Digite o nome do aluno: ");
+    let matriculaAluno = Number(prompt("Digite a matrícula do aluno: "));
+    let qtdNotas = Number(prompt("Digite a quantidade de notas que o aluno possui: "));
+    let notasAluno = [];
+
+    for (let i = 0; i <= (qtdNotas - 1); i++){
+        notasAluno[i] = prompt(`Digite ${i + 1}º nota: `);
+    }
+    alunos.push({nome: nomeAluno, matricula: matriculaAluno, notas: notasAluno});
+
+    for(let a = 0; a <= alunos.length; a++){
+        console.log(`Achei ${a} aluno(s)`);
+        for (let n = 0;n <= alunos[a].notas.length){
+            console.log(`As notas do ${a}º aluno foram ${alunos[n].notas}`);
+        }
+    }
+    for (let n = 0;n <= )
+</script>
+
+alunos[0].nome //Dessa forma se acessa o primeiro elemento do array e usando a dot notation se 
+//acessa o objeto desejado, no caso o nome (poderia ser matricula ou a nota)
+
+//Adicionando um aluno novo na lista de alunos
+alunos.push({nome: 'Asdrubal', matricula: 02, notas: [6, 10, 7]});
