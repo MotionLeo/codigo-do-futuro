@@ -1,5 +1,23 @@
 <script>
+    //Usando arrow function para retornar a média do aluno
+    const mediaAluno = indiceAluno => { 
+        let arrayNotasAluno = alunos[indiceAluno].notas.length; //Adicionando o comprimento do array numa variável
+        let notaSomada = 0;
+        for (let n = 0; n < arrayNotasAluno; n++){
+            notaSomada += alunos[indiceAluno].notas[n]; //Fazendo a soma de todas as notas
+            
+        };
+        return notaSomada / arrayNotasAluno //Retornando a média das notas
+    }
+
+    //Usando arrow function para retornar se o aluno foi aprovado ou não
+    const statusAluno = indiceAluno => {
+        if(mediaAluno(indiceAluno) < 5) return 'Reprovado'
+        if((mediaAluno(indiceAluno) >= 5) && (mediaAluno(indiceAluno) < 7)) return 'Recuperação'
+        if(mediaAluno(indiceAluno) >= 7) return 'Aprovado'
+    }
     
+    alert('Olá, boas vindas a Escola Existente');
     //Criação do objeto aluno
     const alunos = [
         {
@@ -8,60 +26,44 @@
             notas: [8, 9, 4]
         },
     ];
+    let opc = 0;
+    do{
+        opc = Number(prompt(
+            "Sistema Escola Existente\n"+
+            "Escolha qual opção do sistema deseja usar: \n"+
+            "1 - Cadastrar novo aluno: \n"+
+            "2 - Exibir lista detalhada de alunos: \n"+
+            "3 - Sair do sistema: "
+        ));
+        switch(opc){
+            case 1:
+            //Adicionando mais um aluno ao objeto aluno
+            const novoAluno = {} //Criando objeto chamado novoAluno para acrescentá-lo no array de alunos
+            novoAluno.nome = prompt("Digite o nome do aluno: ");
+            novoAluno.matricula = Number(prompt("Digite a matrícula do aluno: "));
+            let qtdNotas = Number(prompt("Digite a quantidade de notas que o aluno possui: "));
+            let notas = [];
 
-    //Adicionando mais um aluno ao objeto aluno
-    const novoAluno = {}
-    novoAluno.nome = prompt("Digite o nome do aluno: ");
-    novoAluno.matricula = Number(prompt("Digite a matrícula do aluno: "));
-    let qtdNotas = Number(prompt("Digite a quantidade de notas que o aluno possui: "));
-    let notas = [];
+            for (let i = 0; i < qtdNotas; i++){ //Loop para adicionar num array a quantidade de notas informada
+                notas[i] = Number(prompt(`Digite ${i + 1}º nota: `));
+            }
+            novoAluno.notas = notas;
+            alunos.push(novoAluno);//Adicionando novo objeto no array de alunos
+            break;
 
-    for (let i = 0; i < qtdNotas; i++){ //Loop para adicionar num array a quantidade de notas informada
-        notas[i] = Number(prompt(`Digite ${i + 1}º nota: `));
-    }
-    novoAluno.notas = notas;
-    alunos.push(novoAluno);
-
-    
-    //Tentativa de acessar e mostrar as notas de cada aluno dentro do array de notas que está dentro do objeto
-    for(let a = 0; a < alunos.length; a++){
-        console.log(`Achei ${a + 1} que é ${alunos[a].nome} aluno(s)`);
-        for (let n = 0;n < alunos[a].notas.length;n++){
-            console.log(`As notas do ${a + 1}º aluno foram ${alunos[a].notas[n]}`);
+            case 2: 
+            //Exibindo num alert todos os alunos com suas respectivas informações
+            for(let a = 0; a < alunos.length; a++){
+                alert(`Aluno: ${alunos[a].nome} \nMatrícula ${alunos[a].matricula}\nNotas: ${alunos[a].notas}\nMédia das notas: ${mediaAluno(a).toFixed(2)}\nStatus do aluno: ${statusAluno(a)}`);
+            }
+            break;
+            case 3:
+                alert("Saindo do sistema...");
+            break;
+            default:
+                alert("Opção inválida!")
         }
-    }
-
-    //Usando arrow function para retornar a média do aluno
-    const mediaAluno = indiceAluno => { 
-        let arrayNotasAluno = alunos[indiceAluno].notas.length;
-        let notaSomada = 0;
-        for (let n = 0;n < arrayNotasAluno;n++){
-            notaSomada += alunos[indiceAluno].notas[n];
-            
-        };
-        console.log(notaSomada);
-        console.log(arrayNotasAluno);
-        return notaSomada / arrayNotasAluno
-    }
-
-    const statusAluno = indiceAluno => {
-        //let esseAluno = alunos[indiceAluno];
-        
-        if(mediaAluno(indiceAluno) < 5) return 'Reprovado'
-        if((mediaAluno(indiceAluno) >= 5) && (mediaAluno(indiceAluno) < 7)) return 'Recuperação'
-        if(mediaAluno(indiceAluno) >= 7) return 'Aprovado'
-
-    }
-
-    //Exibindo num alert todos os alunos com suas respectivas informações
-    for(let a = 0; a < alunos.length; a++){
-        //alert(`Aluno: ${alunos[a].nome} \nMatrícula ${alunos[a].matricula}\nNotas: ${notasPorLinha(a)}`);
-        alert(`Aluno: ${alunos[a].nome} \nMatrícula ${alunos[a].matricula}\nNotas: ${alunos[a].notas}\nMédia das notas: ${mediaAluno(a).toFixed(2)}\nStatus do aluno: ${statusAluno(a)}`);
-        /*for (let n = 0;n < alunos[a].notas.length;n++){
-            console.log(`As notas do ${a + 1}º aluno foram ${alunos[a].notas[n]}`);
-        }*/
-    }
-    
+    }while(opc != 3);
 </script>
 
 alunos[0].nome //Dessa forma se acessa o primeiro elemento do array e usando a dot notation se 
