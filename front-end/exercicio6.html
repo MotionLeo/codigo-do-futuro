@@ -3,7 +3,7 @@
     let numeroFinal = Number(prompt("Digite o valor final"));
 
     for(let i = numeroInicial; i <= numeroFinal; i++){
-        if(numeroFinal - numeroInicial === 1){
+        if((numeroFinal - numeroInicial === 1) || (numeroInicial === numeroFinal)){
             alert("Valores muito próximos");
             break;
         }
