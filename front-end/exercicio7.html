@@ -17,9 +17,9 @@
     let notas = [];
 
     for (let i = 0; i < qtdNotas; i++){ //Loop para adicionar num array a quantidade de notas informada
-        novoAluno.notas[i] = Number(prompt(`Digite ${i + 1}º nota: `));
+        notas[i] = Number(prompt(`Digite ${i + 1}º nota: `));
     }
-
+    novoAluno.notas = notas;
     alunos.push(novoAluno);
 
     
@@ -31,17 +31,32 @@
         }
     }
 
+    //Usando arrow function para retornar a média do aluno
     const mediaAluno = indiceAluno => { 
         let arrayNotasAluno = alunos[indiceAluno].notas.length;
         let notaSomada = 0;
         for (let n = 0;n < arrayNotasAluno;n++){
-            notaSomada =+ alunos[indiceAluno].notas[n];
+            notaSomada += alunos[indiceAluno].notas[n];
+            
         };
-        return notaSomada / arrayNotasAluno;
+        console.log(notaSomada);
+        console.log(arrayNotasAluno);
+        return notaSomada / arrayNotasAluno
     }
+
+    const statusAluno = indiceAluno => {
+        //let esseAluno = alunos[indiceAluno];
+        
+        if(mediaAluno(indiceAluno) < 5) return 'Reprovado'
+        if((mediaAluno(indiceAluno) >= 5) && (mediaAluno(indiceAluno) < 7)) return 'Recuperação'
+        if(mediaAluno(indiceAluno) >= 7) return 'Aprovado'
+
+    }
+
+    //Exibindo num alert todos os alunos com suas respectivas informações
     for(let a = 0; a < alunos.length; a++){
         //alert(`Aluno: ${alunos[a].nome} \nMatrícula ${alunos[a].matricula}\nNotas: ${notasPorLinha(a)}`);
-        alert(`Aluno: ${alunos[a].nome} \nMatrícula ${alunos[a].matricula}\nNotas: ${alunos[a].notas}\nMédia das notas: ${mediaAluno(a)}`);
+        alert(`Aluno: ${alunos[a].nome} \nMatrícula ${alunos[a].matricula}\nNotas: ${alunos[a].notas}\nMédia das notas: ${mediaAluno(a).toFixed(2)}\nStatus do aluno: ${statusAluno(a)}`);
         /*for (let n = 0;n < alunos[a].notas.length;n++){
             console.log(`As notas do ${a + 1}º aluno foram ${alunos[a].notas[n]}`);
         }*/
