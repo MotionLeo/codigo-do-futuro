@@ -1,4 +1,6 @@
 <script>
+    
+    //Criação do objeto aluno
     let alunos = [
         {
             nome: "Leonardo",
@@ -7,23 +9,26 @@
         },
     ];
 
+    //Adicionando mais um aluno ao objeto aluno
     let nomeAluno = prompt("Digite o nome do aluno: ");
     let matriculaAluno = Number(prompt("Digite a matrícula do aluno: "));
     let qtdNotas = Number(prompt("Digite a quantidade de notas que o aluno possui: "));
     let notasAluno = [];
 
-    for (let i = 0; i <= (qtdNotas - 1); i++){
+    for (let i = 0; i <= (qtdNotas - 1); i++){ //Loop para adicionar num array a quantidade de notas informada
         notasAluno[i] = prompt(`Digite ${i + 1}º nota: `);
     }
     alunos.push({nome: nomeAluno, matricula: matriculaAluno, notas: notasAluno});
 
+    
+    //Tentativa de acessar e mostrar as notas de cada aluno dentro do array de notas que está dentro do objeto
     for(let a = 0; a <= alunos.length; a++){
-        console.log(`Achei ${a} aluno(s)`);
-        for (let n = 0;n <= alunos[a].notas.length){
-            console.log(`As notas do ${a}º aluno foram ${alunos[n].notas}`);
+        console.log(`Achei ${a + 1} aluno(s)`);
+        for (let n = 0;n < alunos[a].notas.length;n++){
+            console.log(`As notas do ${a + 1}º aluno foram ${alunos[a].notas[n]}`);
         }
     }
-    for (let n = 0;n <= )
+    
 </script>
 
 alunos[0].nome //Dessa forma se acessa o primeiro elemento do array e usando a dot notation se 
