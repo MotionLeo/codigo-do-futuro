@@ -19,7 +19,7 @@
     for (let i = 0; i < qtdNotas; i++){ //Loop para adicionar num array a quantidade de notas informada
         novoAluno.notas[i] = Number(prompt(`Digite ${i + 1}º nota: `));
     }
-    
+
     alunos.push(novoAluno);
 
     
@@ -30,11 +30,21 @@
             console.log(`As notas do ${a + 1}º aluno foram ${alunos[a].notas[n]}`);
         }
     }
+
+    const mediaAluno = indiceAluno => { 
+        let arrayNotasAluno = alunos[indiceAluno].notas.length;
+        let notaSomada = 0;
+        for (let n = 0;n < arrayNotasAluno;n++){
+            notaSomada =+ alunos[indiceAluno].notas[n];
+        };
+        return notaSomada / arrayNotasAluno;
+    }
     for(let a = 0; a < alunos.length; a++){
-        console.log(`Achei ${a + 1} que é ${alunos[a].nome} aluno(s)`);
-        for (let n = 0;n < alunos[a].notas.length;n++){
+        //alert(`Aluno: ${alunos[a].nome} \nMatrícula ${alunos[a].matricula}\nNotas: ${notasPorLinha(a)}`);
+        alert(`Aluno: ${alunos[a].nome} \nMatrícula ${alunos[a].matricula}\nNotas: ${alunos[a].notas}\nMédia das notas: ${mediaAluno(a)}`);
+        /*for (let n = 0;n < alunos[a].notas.length;n++){
             console.log(`As notas do ${a + 1}º aluno foram ${alunos[a].notas[n]}`);
-        }
+        }*/
     }
     
 </script>
